@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplicar</title>
+
+    <script>
+        function Multiplicar(){
+            var resultado = parseInt(document.getElementById("num1").value) * parseInt(document.getElementById("num2").value)
+            var texto = `
+            O resultado da multiplicação é ${resultado}!
+             `;
+            document.getElementById("resultado").innerText = texto
+        }
+    </script>
+</head>
+<body>
+    <h2>Operação de Multiplicação:</h2>
+    <input type="number" id="num1"> 
+    <a>*</a>
+    <input type="number" id="num2">
+
+    <a><input type="button" value="Multiplicar" id="btn" onclick="Multiplicar();"></a>
+    
+    
+    <br>
+    <a id="resultado"></a>
+    <br>
+    
+    <a href="./inicio"><input type="button" value="Tela Inicial"></a>
+
+</body>
+</html>
