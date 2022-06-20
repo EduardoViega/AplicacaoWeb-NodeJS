@@ -36,8 +36,11 @@ carro.belongsTo(abastecimento,{
 // Relação 1-X (A.belongsTo(B))
 // Relação X-X (A.belongsToMany(B, { through: 'C' }))
 
-
-//Se não existir no banco ela é criada, possui variações para atualizar
-// carro.sync()
+// Se não existir no banco ela é criada
+    // carro.sync()
+// Cria a tabela, deleta a versão anterior se por acaso existia
+    // carro.sync({ force: true })
+// Verifica o estado atual da tabela e realiza operações necessárias para atualizá-la
+    // carro.sync({alter: true})
 
 module.exports = carro

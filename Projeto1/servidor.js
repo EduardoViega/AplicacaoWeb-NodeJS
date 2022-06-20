@@ -1,6 +1,6 @@
 var express = require("express")
 var carro = require("./controladores/controladorCarro")
-// var abastecimento = require("./controladores/controladorAbastecimento")
+var abastecimento = require("./controladores/controladorAbastecimento")
 var servidor = express()
 
 const PORTA = 8081
@@ -26,11 +26,11 @@ servidor.get("/multiplicar",function(req,res){
 
 // Create (marca, ano, usado, abastecimento) ====>
 // abastecimento.inserir("Elétrico")
-// carro.inserir("BMW x6", 2022, false, 2)
+// carro.inserir("BMW x6", 2022, false, 1)
 
 // Read (read where 'id/marca/ano/usado') ====>
-// abastecimento.buscarTudo()
-// carro.buscarTudo()
+abastecimento.buscarTudo()
+carro.buscarTudo()
 // carro.buscarId(1)
 // carro.buscarMarca("BMW x6")
 // carro.buscarAno(2022)
