@@ -1,8 +1,8 @@
 var sequelize = require("sequelize")
 
-var conexao = new sequelize("progweb","root","123456",{
+var conexao = new sequelize("postgres","postgres","123456",{
     host: "localhost",
-    dialect: "mysql"
+    dialect: "postgres"
 })
 
 conexao.authenticate().then(

@@ -10,6 +10,4 @@ rotas.get("/carros/:id",carroControlador.buscarUm)
 rotas.put("/carros/:id",carroControlador.atualizar)
 rotas.delete("/carros/:id",carroControlador.remover)
 
-
-
 module.exports = rotas

@@ -10,6 +10,3 @@ servidor.use(rotas)
 servidor.listen(PORTA,function(){
     console.log("Executando servidor...")
 })
-
-
-

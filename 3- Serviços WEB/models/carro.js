@@ -25,6 +25,6 @@ var carro = banco.define("carro",{
     timestamps: false
 })
 
-//carro.sync()
+// carro.sync()
 
 module.exports = carro
