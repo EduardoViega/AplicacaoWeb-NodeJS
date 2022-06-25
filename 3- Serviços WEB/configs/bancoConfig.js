@@ -1,6 +1,6 @@
 var sequelize = require("sequelize")
 
-var conexao = new sequelize("postgres","postgres","123456",{
+var conexao = new sequelize("projeto3","postgres","123456",{
     host: "localhost",
     dialect: "postgres"
 })
