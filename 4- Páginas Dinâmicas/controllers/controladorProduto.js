@@ -104,7 +104,9 @@ controlador.novoFormulario = function(req,res){
 //solicitarEditarFormulario
 controlador.editarFormulario = function(req,res){
     res.render("editarForm",{
-        idproduto: req.params.id
+        idproduto: req.params.id,
+        descricao: req.params.descricao,
+        preco: req.params.preco
     })
 }
 
