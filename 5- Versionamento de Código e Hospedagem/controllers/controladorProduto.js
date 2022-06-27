@@ -1,4 +1,4 @@
-var carro = require("./../models/carro")
+var produto = require("../models/produto")
 var axios = require("axios")
 var qs = require("querystring")
 
@@ -6,47 +6,45 @@ var controlador = {}
 
 //Create - POST
 controlador.inserir = function(req,res){
-    carro.create({
-        marca: req.body.marca,
-        ano: req.body.ano,
-        usado: req.body.usado
+    produto.create({
+        descricao: req.body.descricao,
+        preco: req.body.preco
     }).then(
         function(dados){
-            res.status(200).redirect("/carros")
+            res.status(200).redirect("/produtos")
         }
     ).catch(
         function(erro){
-            res.status(500).send("Erro ao inserir o carro: "+erro)
+            res.status(500).send("Erro ao inserir o produto: "+erro)
         }
     )
 }
 
 //Read - GET
 controlador.buscar = function(req,res){
-    carro.findAll({
+    produto.findAll({
         raw: true
     }).then(
         function(dados){
             //res.status(200).send(dados)
             res.render("tabela",{
-                carro: dados,
-                pessoa: "Vinícius"
+                produto: dados
             }
             )
         }
     ).catch(
         function(erro){
-            res.status(500).send("Erro ao buscar por carros: "+erro)
+            res.status(500).send("Erro ao buscar por produtos: "+erro)
         }
     )
 }
 
 //Read - GET 2
 controlador.buscarUm = function(req,res){
-    carro.findAll({
+    produto.findAll({
         raw: true,
         where: {
-            idcarro: req.params.id
+            idproduto: req.params.id
         }
     }).then(
         function(dados){
@@ -54,20 +52,19 @@ controlador.buscarUm = function(req,res){
         }
     ).catch(
         function(erro){
-            res.status(500).send("Erro ao buscar por carro: "+erro)
+            res.status(500).send("Erro ao buscar por produto: "+erro)
         }
     )
 }
 
 //Update - PUT
 controlador.atualizar = function(req,res){
-    carro.update({
-        marca: req.body.marca,
-        ano: req.body.ano,
-        usado: req.body.usado,
+    produto.update({
+        descricao: req.body.descricao,
+        preco: req.body.preco
     },{
         where:{
-            idcarro: req.params.id
+            idproduto: req.params.id
         }
     }).then(
         function(dados){
@@ -75,16 +72,16 @@ controlador.atualizar = function(req,res){
         }
     ).catch(
         function(erro){
-            res.status(500).send("Erro ao atualizar um carro: "+erro)
+            res.status(500).send("Erro ao atualizar um produto: "+erro)
         }
     )
 }
 
 //Delete - DELETE
 controlador.remover = function(req,res){
-    carro.destroy({
+    produto.destroy({
         where:{
-            idcarro: req.params.id
+            idproduto: req.params.id
         }
     }).then(
         function(dados){
@@ -92,69 +89,63 @@ controlador.remover = function(req,res){
         }
     ).catch(
         function(erro){
-            res.status(500).send("Erro ao remover um carro: "+erro)
+            res.status(500).send("Erro ao remover um produto: "+erro)
         }
     )
 }
+
+
 
 //solicitarNovoFormulario
 controlador.novoFormulario = function(req,res){
     res.render("novoForm")
 }
 
-
-
-
 //solicitarEditarFormulario
 controlador.editarFormulario = function(req,res){
     res.render("editarForm",{
-        idcarro: req.params.id
+        idproduto: req.params.id,
+        descricao: req.params.descricao,
+        preco: req.params.preco
     })
 }
 
 //montarRequisiçãoEditar
 controlador.montarReqEdicao = function (req, res) {
-    axios.put("/carros/" + req.params.id,
+    axios.put("/produtos/" + req.params.id,
         qs.stringify({
-            marca: req.body.marca,
-            ano: req.body.ano,
-            usado: req.body.usado,
+            descricao: req.body.descricao,
+            preco: req.body.preco,
         }),
         {
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
             },
             proxy:{
-                host: "3.15.190.28",
                 port: 8082
             }
         }
     ).then(function () {
-            res.status(200).redirect("/carros")
+            res.status(200).redirect("/produtos")
         })
         .catch(function (err) {
-            res.status(500).send("Erro ao editar o carro: " + err);
+            res.status(500).send("Erro ao editar o produto: " + err);
         })
 }
 
 
 //montarRequisiçãoRemover
 controlador.montarReqDelete = function (req, res) {
-    axios.delete('/carros/' + req.params.id,{
+    axios.delete('/produtos/' + req.params.id,{
         proxy:{
-            host: "3.15.190.28",
             port: 8082
         }
     }).then(function () {
-            res.status(200).redirect("/carros")
+            res.status(200).redirect("/produtos")
         })
         .catch(function (err) {
-            res.status(500).send("Erro ao apagar um carro: " + err);
+            res.status(500).send("Erro ao apagar um produto: " + err);
         })
 }
-
-
-
-
 
 module.exports = controlador

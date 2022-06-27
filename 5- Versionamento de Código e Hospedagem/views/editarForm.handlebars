@@ -1,19 +1,14 @@
-<h2>Editando Carro com ID {{idcarro}}</h2>
-<form action="/ediReq/{{idcarro}}" method="POST">
+<h2>Editando o Produto com Id {{idproduto}}:</h2>
+<form action="/ediReq/{{idproduto}}" method="POST">
 <div class="mb-3">
-    <label class="form-label">Marca</label>
-    <input class="form-control" type="text" name="marca">
+    <label class="form-label">Descrição</label>
+    <input class="form-control" type="text" name="descricao" value="{{descricao}}">
 </div>
 <div class="mb-3">
-    <label class="form-label">Ano</label>
-    <input class="form-control" type="text" name="ano">
-</div>
-<div class="mb-3">
-    <label class="form-label">Usado</label>
-    <select class="form-control" name="usado">
-        <option value="true">Sim</option>
-        <option value="false">Não</option>
-    </select>
+    <label class="form-label">Preço</label>
+    <input class="form-control" type="number" name="preco" value="{{preco}}">
 </div>
     <button type="submit" class="btn btn-primary">Atualizar</button>
+    <a href="/produtos"><button type="button" class="btn btn-danger">Cancelar</button></a>
 </form>
+<br>

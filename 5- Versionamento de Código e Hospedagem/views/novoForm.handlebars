@@ -1,19 +1,14 @@
-<form action="/carros" method="POST">
+<h2>Cadastrando um novo Produto:</h2>
+<form action="/produtos" method="POST">
     <div class="mb-3">
-        <label class="form-label">Marca</label>
-        <input class="form-control" type="text" name="marca">
+        <label class="form-label">Descrição</label>
+        <input class="form-control" type="text" name="descricao">
     </div>
     <div class="mb-3">
-        <label class="form-label">Ano</label>
-        <input class="form-control" type="text" name="ano">
+        <label class="form-label">Preço</label>
+        <input class="form-control" type="number" name="preco">
     </div>
-    <div class="mb-3">
-        <label class="form-label">Usado</label>
-        <select class="form-control" name="usado">
-            <option value="true">Sim</option>
-            <option value="false">Não</option>
-        </select>
-    </div>
-
     <button type="submit" class="btn btn-primary">Cadastrar</button>
+    <a href="/produtos"><button type="button" class="btn btn-danger">Cancelar</button></a>
 </form>
+<br>
