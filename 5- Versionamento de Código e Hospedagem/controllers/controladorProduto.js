@@ -122,7 +122,7 @@ controlador.montarReqEdicao = function (req, res) {
                 'Content-Type': 'application/x-www-form-urlencoded'
             },
             proxy:{
-                port: 8082
+                port: 5432
             }
         }
     ).then(function () {
@@ -138,7 +138,7 @@ controlador.montarReqEdicao = function (req, res) {
 controlador.montarReqDelete = function (req, res) {
     axios.delete('/produtos/' + req.params.id,{
         proxy:{
-            port: 8082
+            port: 5432
         }
     }).then(function () {
             res.status(200).redirect("/produtos")
