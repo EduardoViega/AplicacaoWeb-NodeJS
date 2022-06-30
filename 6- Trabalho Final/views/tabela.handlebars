@@ -1,0 +1,23 @@
+<a href="/cadastrar"><button type="button" class="btn btn-success">Cadastrar Produto</button></a>
+<br>
+<br>
+<table class="table" style="box-sizing: inherit;">
+    <thead style="border-bottom-width: 1px; border-color: #000;">
+        <tr>
+            <th scope="col">Descrição</th>
+            <th scope="col">Preço</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each produto}}
+        <tr>
+            <th>{{descricao}}</th>
+            <td>{{preco}}</td>
+            <td style="text-align: right; border-bottom-width: 1px #000;">
+                <a href="/editar/{{idproduto}}/{{descricao}}/{{preco}}"><button type="submit" class="btn btn-warning">Editar</button></a>
+                <a href="/remover/{{idproduto}}"><button type="submit" class="btn btn-danger">Apagar</button></a>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
