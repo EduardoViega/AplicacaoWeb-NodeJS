@@ -5,6 +5,7 @@ var rotas = express.Router()
 
 //rotas da API
 rotas.post("/produtos",produtoControlador.inserir)
+rotas.get("/",produtoControlador.buscar)
 rotas.get("/produtos",produtoControlador.buscar)
 rotas.get("/produtos/:id",produtoControlador.buscarUm)
 rotas.put("/produtos/:id",produtoControlador.atualizar)
