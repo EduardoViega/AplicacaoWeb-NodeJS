@@ -1,4 +1,4 @@
-var produto = require("../models/produto")
+var usuario = require("../models/usuario")
 var axios = require("axios")
 var qs = require("querystring")
 
@@ -6,45 +6,47 @@ var controlador = {}
 
 //Create - POST
 controlador.inserir = function(req,res){
-    produto.create({
-        descricao: req.body.descricao,
-        preco: req.body.preco
+    usuario.create({
+        firstname: req.body.firstname,
+        lastname: req.body.lastname,
+        email: req.body.email,
+        repeatemail: req.body.repeatemail
     }).then(
         function(dados){
-            res.status(200).redirect("/produtos")
+            res.status(200).redirect("/usuarios")
         }
     ).catch(
         function(erro){
-            res.status(500).send("Erro ao inserir o produto: "+erro)
+            res.status(500).send("Erro ao inserir o usuário: "+erro)
         }
     )
 }
 
 //Read - GET
 controlador.buscar = function(req,res){
-    produto.findAll({
+    usuario.findAll({
         raw: true
     }).then(
         function(dados){
             //res.status(200).send(dados)
             res.render("tabela",{
-                produto: dados
+                usuario: dados
             }
             )
         }
     ).catch(
         function(erro){
-            res.status(500).send("Erro ao buscar por produtos: "+erro)
+            res.status(500).send("Erro ao buscar por usuários: "+erro)
         }
     )
 }
 
 //Read - GET 2
 controlador.buscarUm = function(req,res){
-    produto.findAll({
+    usuario.findAll({
         raw: true,
         where: {
-            idproduto: req.params.id
+            idusuario: req.params.id
         }
     }).then(
         function(dados){
@@ -52,19 +54,21 @@ controlador.buscarUm = function(req,res){
         }
     ).catch(
         function(erro){
-            res.status(500).send("Erro ao buscar por produto: "+erro)
+            res.status(500).send("Erro ao buscar por usuário: "+erro)
         }
     )
 }
 
 //Update - PUT
 controlador.atualizar = function(req,res){
-    produto.update({
-        descricao: req.body.descricao,
-        preco: req.body.preco
+    usuario.update({
+        firstname: req.body.firstname,
+        lastname: req.body.lastname,
+        email: req.body.email,
+        repeatemail: req.body.repeatemail
     },{
         where:{
-            idproduto: req.params.id
+            idusuario: req.params.id
         }
     }).then(
         function(dados){
@@ -72,16 +76,16 @@ controlador.atualizar = function(req,res){
         }
     ).catch(
         function(erro){
-            res.status(500).send("Erro ao atualizar um produto: "+erro)
+            res.status(500).send("Erro ao atualizar um usuário: "+erro)
         }
     )
 }
 
 //Delete - DELETE
 controlador.remover = function(req,res){
-    produto.destroy({
+    usuario.destroy({
         where:{
-            idproduto: req.params.id
+            idusuario: req.params.id
         }
     }).then(
         function(dados){
@@ -89,7 +93,7 @@ controlador.remover = function(req,res){
         }
     ).catch(
         function(erro){
-            res.status(500).send("Erro ao remover um produto: "+erro)
+            res.status(500).send("Erro ao remover um usuário: "+erro)
         }
     )
 }
@@ -104,18 +108,21 @@ controlador.novoFormulario = function(req,res){
 //solicitarEditarFormulario
 controlador.editarFormulario = function(req,res){
     res.render("editarForm",{
-        idproduto: req.params.id,
-        descricao: req.params.descricao,
-        preco: req.params.preco
+        firstname: req.body.firstname,
+        lastname: req.body.lastname,
+        email: req.body.email,
+        repeatemail: req.body.repeatemail
     })
 }
 
 //montarRequisiçãoEditar
 controlador.montarReqEdicao = function (req, res) {
-    axios.put("/produtos/" + req.params.id,
+    axios.put("/usuarios/" + req.params.id,
         qs.stringify({
-            descricao: req.body.descricao,
-            preco: req.body.preco,
+            firstname: req.body.firstname,
+            lastname: req.body.lastname,
+            email: req.body.email,
+            repeatemail: req.body.repeatemail,
         }),
         {
             headers: {
@@ -127,26 +134,26 @@ controlador.montarReqEdicao = function (req, res) {
             }
         }
     ).then(function () {
-            res.status(200).redirect("/produtos")
+            res.status(200).redirect("/usuarios")
         })
         .catch(function (err) {
-            res.status(500).send("Erro ao editar o produto: " + err);
+            res.status(500).send("Erro ao editar o usuário: " + err);
         })
 }
 
 
 //montarRequisiçãoRemover
 controlador.montarReqDelete = function (req, res) {
-    axios.delete('/produtos/' + req.params.id,{
+    axios.delete('/usuarios/' + req.params.id,{
         proxy:{
             host: "15.228.157.227",
             port: 3000
         }
     }).then(function () {
-            res.status(200).redirect("/produtos")
+            res.status(200).redirect("/usuarios")
         })
         .catch(function (err) {
-            res.status(500).send("Erro ao apagar um produto: " + err);
+            res.status(500).send("Erro ao apagar um usuário: " + err);
         })
 }
 

@@ -1,19 +1,27 @@
 var sequelize = require("sequelize")
 var banco = require("../configs/bancoConfig")
 
-var produto = banco.define("produto",{
-    idproduto: {
+var usuario = banco.define("usuario",{
+    idusuario: {
         type: sequelize.INTEGER,
         allowNull: false,
         autoIncrement: true,
         primaryKey: true
     },
-    descricao: {
+    firstname: {
         type: sequelize.STRING(50),
         allowNull: false,
     },
-    preco: {
-        type: sequelize.DECIMAL,
+    lastname: {
+        type: sequelize.STRING(50),
+        allowNull: false,
+    },
+    email: {
+        type: sequelize.STRING(50),
+        allowNull: false,
+    },
+    repeatemail: {
+        type: sequelize.STRING(50),
         allowNull: false,
     }
 },{
@@ -21,6 +29,6 @@ var produto = banco.define("produto",{
     timestamps: false
 })
 
-// produto.sync()
+// usuario.sync()
 
-module.exports = produto
+module.exports = usuario

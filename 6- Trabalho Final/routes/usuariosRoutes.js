@@ -1,15 +1,15 @@
 var express = require("express")
-var produtoControlador = require("../controllers/controladorProduto")
+var produtoControlador = require("../controllers/controladorUsuario")
 
 var rotas = express.Router()
 
 //rotas da API
-rotas.post("/produtos",produtoControlador.inserir)
+rotas.post("/usuarios",produtoControlador.inserir)
 rotas.get("/",produtoControlador.buscar)
-rotas.get("/produtos",produtoControlador.buscar)
-rotas.get("/produtos/:id",produtoControlador.buscarUm)
-rotas.put("/produtos/:id",produtoControlador.atualizar)
-rotas.delete("/produtos/:id",produtoControlador.remover)
+rotas.get("/usuarios",produtoControlador.buscar)
+rotas.get("/usuarios/:id",produtoControlador.buscarUm)
+rotas.put("/usuarios/:id",produtoControlador.atualizar)
+rotas.delete("/usuarios/:id",produtoControlador.remover)
 
 
 //rotas de páginas

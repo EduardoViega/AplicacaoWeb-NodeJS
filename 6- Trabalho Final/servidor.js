@@ -1,6 +1,6 @@
 var express = require("express")
 var handlebars = require("express-handlebars")
-var rotas = require("./routes/produtoRoutes")
+var rotas = require("./routes/usuariosRoutes")
 
 var servidor = express()
 const PORTA = 3000

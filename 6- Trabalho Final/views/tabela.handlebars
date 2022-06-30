@@ -1,21 +1,25 @@
-<a href="/cadastrar"><button type="button" class="btn btn-success">Cadastrar Produto</button></a>
+<a href="/cadastrar"><button type="button" class="btn btn-success">Cadastrar Usuário</button></a>
 <br>
 <br>
 <table class="table" style="box-sizing: inherit;">
     <thead style="border-bottom-width: 1px; border-color: #000;">
         <tr>
-            <th scope="col">Descrição</th>
-            <th scope="col">Preço</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Repeat Email</th>
         </tr>
     </thead>
     <tbody>
-        {{#each produto}}
+        {{#each usuario}}
         <tr>
-            <th>{{descricao}}</th>
-            <td>{{preco}}</td>
+            <th>{{firstname}}</th>
+            <th>{{lastname}}</th>
+            <th>{{email}}</th>
+            <th>{{repeatemail}}</th>
             <td style="text-align: right; border-bottom-width: 1px #000;">
-                <a href="/editar/{{idproduto}}/{{descricao}}/{{preco}}"><button type="submit" class="btn btn-warning">Editar</button></a>
-                <a href="/remover/{{idproduto}}"><button type="submit" class="btn btn-danger">Apagar</button></a>
+                <a href="/editar/{{idusuario}}/{{firstname}}/{{lastname}}/{{email}}/{{repeatemail}}"><button type="submit" class="btn btn-warning">Editar</button></a>
+                <a href="/remover/{{idusuario}}"><button type="submit" class="btn btn-danger">Apagar</button></a>
             </td>
         </tr>
         {{/each}}
