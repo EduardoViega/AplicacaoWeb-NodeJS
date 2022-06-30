@@ -6,7 +6,7 @@ var servidor = express()
 const PORTA = 3000
 
 //configuração do handlebars no projeto
-servidor.engine("handlebars", handlebars.engine({defaultLayout:"main"}))
+servidor.engine("handlebars", handlebars({defaultLayout:"main"}))
 servidor.set("view engine","handlebars")
 
 servidor.use(express.urlencoded({extended:true}))
