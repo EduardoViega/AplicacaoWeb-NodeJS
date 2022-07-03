@@ -7,10 +7,8 @@ var controlador = {}
 //Create - POST
 controlador.inserir = function(req,res){
     usuario.create({
-        firstname: req.body.firstname,
-        lastname: req.body.lastname,
-        email: req.body.email,
-        repeatemail: req.body.repeatemail
+        descricao: req.body.descricao,
+        preco: req.body.preco
     }).then(
         function(dados){
             res.status(200).redirect("/usuarios")
@@ -62,10 +60,8 @@ controlador.buscarUm = function(req,res){
 //Update - PUT
 controlador.atualizar = function(req,res){
     usuario.update({
-        firstname: req.body.firstname,
-        lastname: req.body.lastname,
-        email: req.body.email,
-        repeatemail: req.body.repeatemail
+        descricao: req.body.descricao,
+        preco: req.body.preco
     },{
         where:{
             idusuario: req.params.id
@@ -108,10 +104,9 @@ controlador.novoFormulario = function(req,res){
 //solicitarEditarFormulario
 controlador.editarFormulario = function(req,res){
     res.render("editarForm",{
-        firstname: req.body.firstname,
-        lastname: req.body.lastname,
-        email: req.body.email,
-        repeatemail: req.body.repeatemail
+        idusuario: req.params.id,
+        descricao: req.params.descricao,
+        preco: req.params.preco
     })
 }
 
@@ -119,10 +114,8 @@ controlador.editarFormulario = function(req,res){
 controlador.montarReqEdicao = function (req, res) {
     axios.put("/usuarios/" + req.params.id,
         qs.stringify({
-            firstname: req.body.firstname,
-            lastname: req.body.lastname,
-            email: req.body.email,
-            repeatemail: req.body.repeatemail,
+            descricao: req.body.descricao,
+            preco: req.body.preco,
         }),
         {
             headers: {
@@ -137,7 +130,7 @@ controlador.montarReqEdicao = function (req, res) {
             res.status(200).redirect("/usuarios")
         })
         .catch(function (err) {
-            res.status(500).send("Erro ao editar o produto: " + err);
+            res.status(500).send("Erro ao editar o usuário: " + err);
         })
 }
 
@@ -153,7 +146,7 @@ controlador.montarReqDelete = function (req, res) {
             res.status(200).redirect("/usuarios")
         })
         .catch(function (err) {
-            res.status(500).send("Erro ao apagar um produto: " + err);
+            res.status(500).send("Erro ao apagar um usuário: " + err);
         })
 }
 

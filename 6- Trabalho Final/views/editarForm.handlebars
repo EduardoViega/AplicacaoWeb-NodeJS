@@ -1,20 +1,12 @@
 <h2>Editando o Usuário com Id {{idusuario}}:</h2>
 <form action="/ediReq/{{idusuario}}" method="POST">
 <div class="mb-3">
-    <label class="form-label">First Name</label>
-    <input class="form-control" type="text" name="firstname" value="{{firstname}}">
+    <label class="form-label">Descrição</label>
+    <input class="form-control" type="text" name="descricao" value="{{descricao}}">
 </div>
 <div class="mb-3">
-    <label class="form-label">Last Name</label>
-    <input class="form-control" type="text" name="lastname" value="{{lastname}}">
-</div>
-<div class="mb-3">
-    <label class="form-label">Email</label>
-    <input class="form-control" type="email" name="email" value="{{email}}">
-</div>
-<div class="mb-3">
-    <label class="form-label">Repeat Email</label>
-    <input class="form-control" type="email" name="repeatemail" value="{{repeatemail}}">
+    <label class="form-label">Preço</label>
+    <input class="form-control" type="number" name="preco" value="{{preco}}">
 </div>
     <button type="submit" class="btn btn-primary">Atualizar</button>
     <a href="/usuarios"><button type="button" class="btn btn-danger">Cancelar</button></a>

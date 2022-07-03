@@ -8,20 +8,12 @@ var usuario = banco.define("usuario",{
         autoIncrement: true,
         primaryKey: true
     },
-    firstname: {
+    descricao: {
         type: sequelize.STRING(50),
         allowNull: false,
     },
-    lastname: {
-        type: sequelize.STRING(50),
-        allowNull: false,
-    },
-    email: {
-        type: sequelize.STRING(50),
-        allowNull: false,
-    },
-    repeatemail: {
-        type: sequelize.STRING(50),
+    preco: {
+        type: sequelize.DECIMAL,
         allowNull: false,
     }
 },{
@@ -29,6 +21,6 @@ var usuario = banco.define("usuario",{
     timestamps: false
 })
 
-// usuario.sync()
+usuario.sync()
 
 module.exports = usuario
