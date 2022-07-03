@@ -122,8 +122,8 @@ controlador.montarReqEdicao = function (req, res) {
                 'Content-Type': 'application/x-www-form-urlencoded'
             },
             proxy:{
-                host: "15.228.157.227",
-                port: 3000
+                host: "54.207.99.25",
+                port: 80
             }
         }
     ).then(function () {
@@ -139,8 +139,8 @@ controlador.montarReqEdicao = function (req, res) {
 controlador.montarReqDelete = function (req, res) {
     axios.delete('/produtos/' + req.params.id,{
         proxy:{
-            host: "15.228.157.227",
-            port: 3000
+            host: "54.207.99.25",
+            port: 80
         }
     }).then(function () {
             res.status(200).redirect("/produtos")
