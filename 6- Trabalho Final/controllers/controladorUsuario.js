@@ -7,8 +7,10 @@ var controlador = {}
 //Create - POST
 controlador.inserir = function(req,res){
     usuario.create({
-        descricao: req.body.descricao,
-        preco: req.body.preco
+        firstname: req.body.firstname,
+        lastname: req.body.lastname,
+        email: req.body.email,
+        repemail: req.body.repemail
     }).then(
         function(dados){
             res.status(200).redirect("/usuarios")
@@ -60,8 +62,10 @@ controlador.buscarUm = function(req,res){
 //Update - PUT
 controlador.atualizar = function(req,res){
     usuario.update({
-        descricao: req.body.descricao,
-        preco: req.body.preco
+        firstname: req.body.firstname,
+        lastname: req.body.lastname,
+        email: req.body.email,
+        repemail: req.body.repemail
     },{
         where:{
             idusuario: req.params.id
@@ -104,9 +108,10 @@ controlador.novoFormulario = function(req,res){
 //solicitarEditarFormulario
 controlador.editarFormulario = function(req,res){
     res.render("editarForm",{
-        idusuario: req.params.id,
-        descricao: req.params.descricao,
-        preco: req.params.preco
+        firstname: req.body.firstname,
+        lastname: req.body.lastname,
+        email: req.body.email,
+        repemail: req.body.repemail
     })
 }
 
@@ -114,8 +119,10 @@ controlador.editarFormulario = function(req,res){
 controlador.montarReqEdicao = function (req, res) {
     axios.put("/usuarios/" + req.params.id,
         qs.stringify({
-            descricao: req.body.descricao,
-            preco: req.body.preco,
+            firstname: req.body.firstname,
+            lastname: req.body.lastname,
+            email: req.body.email,
+            repemail: req.body.repemail,
         }),
         {
             headers: {

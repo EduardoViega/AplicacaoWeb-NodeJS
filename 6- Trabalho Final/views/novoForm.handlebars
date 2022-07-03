@@ -1,12 +1,20 @@
 <h2>Cadastrando um novo Usuário:</h2>
 <form action="/usuarios" method="POST">
     <div class="mb-3">
-        <label class="form-label">Descrição</label>
-        <input class="form-control" type="text" name="descricao">
+        <label class="form-label">First Name</label>
+        <input class="form-control" type="text" name="firstname">
     </div>
     <div class="mb-3">
-        <label class="form-label">Preço</label>
-        <input class="form-control" type="number" name="preco">
+        <label class="form-label">Last Name</label>
+        <input class="form-control" type="text" name="lastname">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input class="form-control" type="email" name="email">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Repeat Email</label>
+        <input class="form-control" type="email" name="repemail">
     </div>
     <button type="submit" class="btn btn-primary">Cadastrar</button>
     <a href="/usuarios"><button type="button" class="btn btn-danger">Cancelar</button></a>

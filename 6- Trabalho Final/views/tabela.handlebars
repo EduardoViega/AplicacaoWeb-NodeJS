@@ -4,17 +4,17 @@
 <table class="table" style="box-sizing: inherit;">
     <thead style="border-bottom-width: 1px; border-color: #000;">
         <tr>
-            <th scope="col">Descrição</th>
+            <th scope="col">First Name</th>
             <th scope="col">Preço</th>
         </tr>
     </thead>
     <tbody>
         {{#each usuario}}
         <tr>
-            <th>{{descricao}}</th>
+            <th>{{firstname}}</th>
             <td>{{preco}}</td>
             <td style="text-align: right; border-bottom-width: 1px #000;">
-                <a href="/editar/{{idusuario}}/{{descricao}}/{{preco}}"><button type="submit" class="btn btn-warning">Editar</button></a>
+                <a href="/editar/{{idusuario}}/{{firstname}}/{{lastname}}/{{email}}/{{repemail}}"><button type="submit" class="btn btn-warning">Editar</button></a>
                 <a href="/remover/{{idusuario}}"><button type="submit" class="btn btn-danger">Apagar</button></a>
             </td>
         </tr>

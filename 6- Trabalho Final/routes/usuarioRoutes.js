@@ -14,7 +14,7 @@ rotas.delete("/usuarios/:id",usuarioControlador.remover)
 
 //rotas de páginas
 rotas.get("/cadastrar",usuarioControlador.novoFormulario)   //retorna a página de cadastro
-rotas.get("/editar/:id/:descricao/:preco",usuarioControlador.editarFormulario) //retorna a pagina de edição
+rotas.get("/editar/:id/:firstname/:lastname/:email/:repemail",usuarioControlador.editarFormulario) //retorna a pagina de edição
 rotas.post("/ediReq/:id",usuarioControlador.montarReqEdicao) //monta requisição de edição
 rotas.get("/remover/:id",usuarioControlador.montarReqDelete)  //monta requisição de remoção
 

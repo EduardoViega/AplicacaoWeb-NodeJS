@@ -8,12 +8,20 @@ var usuario = banco.define("usuario",{
         autoIncrement: true,
         primaryKey: true
     },
-    descricao: {
+    firstname: {
         type: sequelize.STRING(50),
         allowNull: false,
     },
-    preco: {
-        type: sequelize.DECIMAL,
+    lastname: {
+        type: sequelize.STRING(50),
+        allowNull: false,
+    },
+    email: {
+        type: sequelize.STRING(50),
+        allowNull: false,
+    },
+    repemail: {
+        type: sequelize.STRING(50),
         allowNull: false,
     }
 },{
