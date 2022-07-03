@@ -1,7 +1,7 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "description": "",
+  "description": "Neste módulo aprenderemos sobre Versionamento de código e Hospedagem.\r Foi aprendido a conectar o GitHub no VsCode, realizar commits por ele. \r Hospedar no servidor da AWS e trocar o domíno, que ficou como: [projetoeduardoviega](http://www.projetoeduardoviega.tk:3000/produtos)",
   "main": "servidor.js",
   "dependencies": {
     "axios": "^0.21.4",
@@ -17,5 +17,6 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {}
 }

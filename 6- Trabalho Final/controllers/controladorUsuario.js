@@ -129,7 +129,7 @@ controlador.montarReqEdicao = function (req, res) {
                 'Content-Type': 'application/x-www-form-urlencoded'
             },
             proxy:{
-                host: "15.228.157.227",
+                host: "54.207.90.118",
                 port: 3000
             }
         }
@@ -137,7 +137,7 @@ controlador.montarReqEdicao = function (req, res) {
             res.status(200).redirect("/usuarios")
         })
         .catch(function (err) {
-            res.status(500).send("Erro ao editar o usuário: " + err);
+            res.status(500).send("Erro ao editar o produto: " + err);
         })
 }
 
@@ -146,14 +146,14 @@ controlador.montarReqEdicao = function (req, res) {
 controlador.montarReqDelete = function (req, res) {
     axios.delete('/usuarios/' + req.params.id,{
         proxy:{
-            host: "15.228.157.227",
+            host: "54.207.90.118",
             port: 3000
         }
     }).then(function () {
             res.status(200).redirect("/usuarios")
         })
         .catch(function (err) {
-            res.status(500).send("Erro ao apagar um usuário: " + err);
+            res.status(500).send("Erro ao apagar um produto: " + err);
         })
 }
 
