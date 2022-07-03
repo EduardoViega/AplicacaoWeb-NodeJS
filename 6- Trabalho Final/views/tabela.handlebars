@@ -12,7 +12,9 @@
         {{#each usuario}}
         <tr>
             <th>{{firstname}}</th>
-            <td>{{preco}}</td>
+            <td>{{lastname}}</td>
+            <td>{{email}}</td>
+            <td>{{repemail}}</td>
             <td style="text-align: right; border-bottom-width: 1px #000;">
                 <a href="/editar/{{idusuario}}/{{firstname}}/{{lastname}}/{{email}}/{{repemail}}"><button type="submit" class="btn btn-warning">Editar</button></a>
                 <a href="/remover/{{idusuario}}"><button type="submit" class="btn btn-danger">Apagar</button></a>
